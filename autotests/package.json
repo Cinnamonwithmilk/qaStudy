@@ -1,0 +1,15 @@
+{
+  "name": "avtotests",
+  "version": "1.0.0",
+  "main": "account.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "koritsasmolokom",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
