@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON: Отправка и Получение</title>
+</head>
+<body>
+
+<h2>Пример обмена данными</h2>
+<button onclick="sendData()">Отправить данные</button>
+
+<p id="status">Ожидание...</p>
+<p id="result"></p>
+
+<script>
+function sendData() {
+  // 1. Создаём JS-объект
+  const user = {
+    name: "Sofya",
+    age: 24,
+    city: "Tashkent"
+  };
+
+  // 2. Преобразуем в JSON-строку
+  const jsonToSend = JSON.stringify(user);
+  document.getElementById("status").innerText = "Отправка на сервер: " + jsonToSend;
+
+  // 3. Имитируем отправку на сервер (задержка 1 сек)
+  setTimeout(() => {
+    // 4. Сервер "отвечает" нам JSON-строкой
+    const fakeServerResponse = '{"message":"Данные успешно получены!","name":"Sofya","status":"OK"}';
+
+    // 5. Преобразуем ответ в объект
+    const responseData = JSON.parse(fakeServerResponse);
+
+    // 6. Выводим на страницу
+    document.getElementById("result").innerHTML =
+      `Ответ от сервера: ${responseData.message}<br>Имя: ${responseData.name}<br>Статус: ${responseData.status}`;
+  }, 1000);
+}
+</script>
+
+</body>
+</html>
